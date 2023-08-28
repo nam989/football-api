@@ -1,9 +1,16 @@
 # football-api
 
-Challenge
-Execution steps
--Use node v16.16.0
--RUN `npm i`
--If you want run it locally please run `npm run build`
--If you want run tests `npm run test`
--If you want run it with docker-compose run `sudo docker-compose up --build`
+
+## Prerequisites
+`node v16.16.0`,
+`docker` and `docker-compose`
+
+# How to run?
+  RUN `npm i`
+  
+  If you want run it locally please execute `npm run build`
+  
+  If you want run tests do `npm run test`
+  
+  If you want run the project with docker run `sudo docker-compose up --build`
+
