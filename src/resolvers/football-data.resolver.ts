@@ -1,5 +1,5 @@
 import { PrismaClient, Player, Team } from "@prisma/client";
-import fetchCompetitionData from "../services/getTeams";
+import fetchCompetitionData from "../services/fetchData";
 import { AxiosInstance } from "axios";
 import catchify from "catchify";
 

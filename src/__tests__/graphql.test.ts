@@ -69,8 +69,8 @@ const mockCompetition: Competition = {
   name: "UEFA Champions League",
 };
 
-jest.mock<typeof import("../services/getTeams")>(
-  "../services/getTeams",
+jest.mock<typeof import("../services/fetchData")>(
+  "../services/fetchData",
   (): any => {
     return jest.fn(() => ({
       competition: {
