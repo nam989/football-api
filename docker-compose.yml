@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  ts-node-docker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    environment:
+      - PORT=4000
+      - API_BASE_URL=http://api.football-data.org/v4/
+      - API_TOKEN=539c1bd9b9cb4cfbb30651abdff31dd7
+    container_name: ts-football-api-docker
+    expose:
+      - "4000"
+    ports:
+      - "4000:4000"
+    command: npm start

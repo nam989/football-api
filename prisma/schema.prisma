@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./db/dev.db"
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl"]
+}
+
+model Competition {
+  id        Int      @id
+  code      String   @unique
+  name      String
+  teams     Team[]   @relation("CompetitionTeam")
+  createdAt DateTime @default(now())
+}
+
+model Team {
+  id           Int           @id
+  name         String
+  tla          String
+  shortName    String
+  areaName     String
+  address      String
+  players      Player[]      @relation("TeamPlayer")
+  competitions Competition[] @relation("CompetitionTeam")
+  createdAt    DateTime      @default(now())
+}
+
+model Player {
+  id          Int      @id
+  teams       Team[]   @relation("TeamPlayer")
+  name        String
+  position    String
+  dateOfBirth DateTime
+  nationality String
+  createdAt   DateTime @default(now())
+}

@@ -1,0 +1,51 @@
+scalar DateTime
+
+interface BaseModel {
+  id: ID!
+  createdAt: DateTime!
+}
+
+type Response {
+  msg: String
+  details: String
+}
+
+type Competition implements BaseModel {
+  id: ID!
+  createdAt: DateTime!
+
+  code: String
+  name: String
+  teams: [Team]
+}
+
+type Team implements BaseModel {
+  id: ID!
+  createdAt: DateTime!
+
+  name: String!
+  tla: String!
+  shortName: String!
+  areaName: String!
+  address: String!
+  players: [Player]!
+}
+
+type Player implements BaseModel {
+  id: ID!
+  createdAt: DateTime!
+
+  name: String!
+  position: String!
+  dateOfBirth: DateTime!
+  nationality: String!
+}
+
+type Mutation {
+  migrateData(id: String!): Response
+}
+
+type Query {
+  players(leagueCode: String!, teamName: String): [Player]
+  team(name: String!): Team
+}
